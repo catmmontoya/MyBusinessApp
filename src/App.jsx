@@ -1,22 +1,27 @@
 // import { useState } from 'react'
 import './App.css'
+import RootLayout from './components/RootLayout.jsx'
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom"
+import Home from "./pages/Home.jsx"
+import Footer from "./components/Footer.jsx"
 
 function App() {
 
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      </Route>
+    )
+  )
+
   return (
     <>
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div> */}
       <h1>Cat Montoya</h1>
-      <div className="card">
+      <div>
+      <RouterProvider router={router} />
       </div>
-      
+      <Footer />
     </>
   )
 }

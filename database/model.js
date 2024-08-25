@@ -35,4 +35,35 @@ Item.init(
   }
 );
 
-export { Item };
+class Admin extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
+
+Admin.init(
+  {
+    adminId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    username: {
+      type: DataTypes.STRING(30),
+      allowNull: false,
+      unique: true,
+      required: true,
+    },
+    password: {
+      type: DataTypes.STRING(30),
+      allowNull: false,
+      required: true,
+    },
+  },
+  {
+    modelName: "admin",
+    sequelize: db,
+  }
+);
+
+export { Item, Admin };

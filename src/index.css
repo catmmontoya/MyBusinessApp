@@ -75,3 +75,13 @@ main {
   position: relative;
   padding-bottom: 250px; 
 }
+
+.footer {
+  min-height: 150px;
+  margin-top: 50px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

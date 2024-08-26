@@ -1,6 +1,6 @@
 function Inquire() {
   return (
-    <div>Inquire</div>
+    <h2>INQUIRE</h2>
   )
 }
 

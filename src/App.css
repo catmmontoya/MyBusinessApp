@@ -61,12 +61,6 @@ body {
 }
 
 nav {
-  /* background-color: rgb(197, 234, 181); */
-  justify-content: flex-start;
-  padding: 20px;
-}
-
-header nav {
   display: flex;
   gap: 16px;
   justify-content: end; /* sends the nav items to the right */
@@ -74,19 +68,27 @@ header nav {
   margin: 0 auto;
   max-height: 80px;
   padding-bottom: 0px;
+  padding: 20px;
  }
  
- header nav h1 {
+ nav h1 {
    margin-right: auto; /* this sets it to the left of the navs because of how you placed them */
    border-bottom: 3px solid var(--primary);
    margin-top: 5px;
+   font-size: 80px
  }
  
- header nav a {
+ nav ul {
+  list-style-type: none;
+ }
+
+ nav ul li {
    text-decoration: none;
    padding: 6px;
    border-radius: 4px;
-   color: black
+   color: black;
+   /* display: inline */
+   font-size: 20px
  }
 
  .footer {

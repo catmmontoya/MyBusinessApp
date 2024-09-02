@@ -66,4 +66,70 @@ Admin.init(
   }
 );
 
-export { Item, Admin };
+class User extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
+
+User.init(
+  {
+    userId: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    email: {
+      type: DataTypes.STRING(50),
+      required: true,
+      unique: true,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING(30),
+      required: true,
+      allowNull: false,
+    },
+  },
+  {
+    modelName: "user",
+    sequelize: db,
+  }
+);
+
+class Order extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
+
+Order.init(
+  {
+    orderId: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    totalPrice: {
+      type: DataTypes.INTEGER,
+    },
+  },
+  {
+    modelName: "admin",
+    sequelize: db,
+    timestamps: true,
+    createdAt: true,
+  }
+);
+
+//Relationships
+User.hasMany(Order, { foreignKey: "userId" });
+Order.belongsTo(User, { foreignKey: "userId" });
+Item.hasMany(Order, { foreignKey: "itemId" });
+Order.belongsTo(Item, { foreignKey: "itemId" });
+
+export { Item, Admin, User, Order };

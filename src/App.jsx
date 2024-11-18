@@ -3,7 +3,7 @@ import './App.css'
 // import RootLayout from './components/RootLayout.jsx'
 import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import Home from "./pages/Home.jsx"
-import Footer from "./components/Footer.jsx"
+// import Footer from "./components/Footer.jsx"
 import Shop from "./pages/Shop.jsx"
 import Inquire from "./pages/Inquire.jsx"
 
@@ -26,7 +26,7 @@ function App() {
             <Route path="/inquire" element={<Inquire />} />
           </Routes>
       </Router>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
